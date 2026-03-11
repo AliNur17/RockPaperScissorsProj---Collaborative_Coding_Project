@@ -8,21 +8,23 @@ public class Game
     private int player1Wins, player2Wins, drawGames = 0;
     private boolean checkSamePlayerType;
 
-    private final String player1Type;
-    private final String player2Type;
+    private String player1Type, player1Name;
+    private String player2Type, player2Name;
     Player p1, p2;
 
 
     public Game()
     {
+        //Default game initialization
+        //20 rounds, played by a Human and a randomly-deciding Computer
         roundCounter = 1;
         totalNumberRounds = 20;
 
         player1Type = "Human";
-        player2Type = "AI";
-
-        p1 = PlayerFactory.createPlayer(player1Type, "Human");
-        p2 = PlayerFactory.createPlayer(player2Type, "Computer");
+        player1Name = "Human";
+        
+        player2Type = "RandomComputer";
+        player2Name = "Computer";
     }
 
     private void nextRound()
@@ -63,6 +65,9 @@ public class Game
 
     public void play()
     {
+        p1 = PlayerFactory.createPlayer(player1Type, player1Name);
+        p2 = PlayerFactory.createPlayer(player2Type, player2Name);
+
         System.out.println("\n");
         String player1Name = p1.getName();
         String player2Name = p2.getName();

@@ -6,7 +6,6 @@ public class Game
     private int roundCounter;
     private final int totalNumberRounds;
     private int player1Wins, player2Wins, drawGames = 0;
-    private boolean checkSamePlayerType;
 
     private String player1Type, player1Name;
     private String player2Type, player2Name;
@@ -22,7 +21,7 @@ public class Game
 
         player1Type = "Human";
         player1Name = "Human";
-        
+
         player2Type = "RandomComputer";
         player2Name = "Computer";
     }
@@ -58,11 +57,6 @@ public class Game
         System.out.println("Score: " + p1.getName() + ":" + player1Wins + " " + p2.getName() + ":" + player2Wins + " Draws=" + drawGames + "\n");
     }
 
-    private void checkHidden()
-    {
-        checkSamePlayerType = player1Type.equals(player2Type);
-    }
-
     public void play()
     {
         p1 = PlayerFactory.createPlayer(player1Type, player1Name);
@@ -76,15 +70,16 @@ public class Game
         {
             System.out.print("Round " + roundCounter + " - Choose " + RuleEngine.availableChoices() + ": ");
             String p1Decision, p2Decision;
-            if (checkSamePlayerType) //In case of two human or non-human players
+            if (player1Type.equals(player2Type)) //In case of two human or non-human players
             {
-                p1.updateHidden(checkSamePlayerType);
+                p1.updateHidden(true);
                 p1Decision = p1.makeMove();
+                System.out.print("Round " + roundCounter + " - Choose " + RuleEngine.availableChoices() + ": ");
                 p2Decision = p2.makeMove();
                 //To differentiate the two players without repeating a descriptor like "Human" or "You" as an example
                 player1Name = "Player 1";
                 player2Name = "Player 2";
-                System.out.print(player1Name + " chose: " + p1Decision + ". " + player2Name + " chose: " + p2Decision);
+                System.out.print(player1Name + " chose: " + p1Decision + ". " + player2Name + " chose: " + p2Decision + ". ");
             }
             else //Different player types
             {

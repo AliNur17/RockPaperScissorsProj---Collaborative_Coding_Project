@@ -1,15 +1,13 @@
 package player;
-import game.*;
 
-public class HumanPlayer extends Player
-{
-    public HumanPlayer(String name)
-    {
-        super(name);
-    }
+import game.Move;
 
-    public String makeMove()
-    {
+// Represents a human player -- delegates move input to Move class
+public class HumanPlayer extends Player {
+    public HumanPlayer(String name) { super(name); }
+
+    @Override
+    public String makeMove() {
         return Move.makeHumanDecision(hiddenStatus);
     }
 }

@@ -2,22 +2,26 @@ package game;
 
 import java.util.Random;
 
-// Handles random computer move selection only.
-public class RandomMove implements Move {
+// Handles machine learning computer move selection only.
+
+// CURRENTLY NOT YET UPDATED
+public class MachineLearningMove implements Move {
 
     private final Random random;
+    private final MemoryManager mm;
 
-    public RandomMove() {
+    public MachineLearningMove() {
         this(new Random());
     }
 
-    public RandomMove(Random random) {
+    public MachineLearningMove(Random random) {
+        mm = new MemoryManager();
         this.random = random;
     }
 
     @Override
     public String chooseMove(boolean hiddenMode) {
-        String[] moves = RuleEngine.getMoves();
+        String[] moves = mm.chooseMove();
         String decision = moves[random.nextInt(moves.length)];
         GameDisplay.showComputerChoice(decision);
         return decision;
@@ -34,6 +38,7 @@ public class RandomMove implements Move {
 
     @Override
     public void recordMoves(String moveOne, String moveTwo) {
-        
+        mm.recordOpponentMove(moveOne);
+        mm.chosenMove(moveTwo);
     }
 }

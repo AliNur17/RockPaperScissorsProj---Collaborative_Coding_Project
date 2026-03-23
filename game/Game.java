@@ -25,7 +25,19 @@ public class Game {
         player1Type = "Human";
         player1Name = "Human";
         player2Type = "RandomComputer";
-        player2Name = "Computer";
+        player2Name = "RandomComputer";
+        player1Wins = 0;
+        player2Wins = 0;
+        drawGames = 0;
+    }
+
+    public Game(GameConfig config) {
+        roundCounter = 1;
+        totalNumberRounds = 20;
+        player1Type = "Human";
+        player1Name = "Human";
+        player2Type = config.getCPUType();
+        player2Name = config.getCPUName();
         player1Wins = 0;
         player2Wins = 0;
         drawGames = 0;
@@ -82,6 +94,9 @@ public class Game {
             if (hiddenRound) {
                 GameDisplay.showHiddenRoundChoices(displayName1, p1Decision, displayName2, p2Decision);
             }
+
+            p1.recordMoves(p1Decision, p2Decision);
+            p2.recordMoves(p1Decision, p2Decision);
 
             int winner = RuleEngine.getVictor(p1Decision, p2Decision);
             updateScore(winner, displayName1, displayName2);

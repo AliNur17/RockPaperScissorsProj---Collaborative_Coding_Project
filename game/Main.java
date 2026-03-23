@@ -1,6 +1,5 @@
 package game;
 
-import player.*;
 import java.util.Scanner;
 
 public class Main {
@@ -17,12 +16,14 @@ public class Main {
         if (choice.equals("2")) {
             runAllTests();
         } else {
-            runGame();
+            runGame(args);
         }
     }
 
-    private static void runGame() {
-        Game game = new Game();
+    private static void runGame(String[] args) {
+        GameConfig config = new GameConfig();
+        config.parse(args);
+        Game game = new Game(config);
         game.play();
     }
 

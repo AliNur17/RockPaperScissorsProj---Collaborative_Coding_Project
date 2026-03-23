@@ -107,7 +107,6 @@ public class MemoryManager {
     }
 
     private void updateMemory() {
-        System.out.println("UPDATING RAHHH");
         File temp = new File("MemoryTemp.txt");
         PrintStream ps;
         try {

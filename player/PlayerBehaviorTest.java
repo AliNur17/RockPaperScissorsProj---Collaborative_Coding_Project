@@ -34,12 +34,12 @@ public class PlayerBehaviorTest implements TestProgram {
 
     private void testHumanVsComputerDoesNotHideMoves() {
         HumanPlayer p1 = new HumanPlayer("A");
-        ComputerPlayer p2 = new ComputerPlayer("CPU");
+        RandomComputerPlayer p2 = new RandomComputerPlayer("CPU");
         assertFalse(p1.shouldHideMoveAgainst(p2), "Human vs Computer should not hide moves");
     }
 
     private void testComputerVsHumanDoesNotHideMoves() {
-        ComputerPlayer p1 = new ComputerPlayer("CPU");
+        RandomComputerPlayer p1 = new RandomComputerPlayer("CPU");
         HumanPlayer p2 = new HumanPlayer("A");
         assertFalse(p1.shouldHideMoveAgainst(p2), "Computer vs Human should not hide moves");
     }

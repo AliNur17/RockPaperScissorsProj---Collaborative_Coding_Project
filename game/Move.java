@@ -5,4 +5,5 @@ package game;
 public interface Move {
     String chooseMove(boolean hiddenMode);
     boolean isHumanControlled();
+    void recordMoves(String moveOne, String moveTwo);
 }

@@ -21,7 +21,7 @@ public class RuleEngine {
     }
 
     public static String[] getMoves() {
-        return possibleChoices.values().toArray(new String[0]);
+        return possibleChoices.values().toArray(String[]::new);
     }
 
     public static String availableChoices() {
@@ -63,5 +63,14 @@ public class RuleEngine {
         }
 
         return -1;
+    }
+
+    public static String getVictor(String choice) throws Exception {
+        for (String[] currentRule : rules) {
+            if (choice.equalsIgnoreCase(currentRule[1])) {
+                return currentRule[0];
+            }
+        }
+        throw new Exception("Choice made by ML doesnt match rules");
     }
 }

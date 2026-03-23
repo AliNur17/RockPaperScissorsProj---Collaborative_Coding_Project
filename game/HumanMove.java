@@ -53,4 +53,9 @@ public class HumanMove implements Move {
         }
         return null;
     }
+
+    @Override
+    public void recordMoves(String moveOne, String moveTwo) {
+        
+    }
 }

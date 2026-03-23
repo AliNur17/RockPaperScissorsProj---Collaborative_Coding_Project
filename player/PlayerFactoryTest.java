@@ -28,7 +28,7 @@ public class PlayerFactoryTest implements TestProgram {
 
     private void testCreateComputerPlayer() {
         Player p = PlayerFactory.createPlayer("RandomComputer", "CPU");
-        assertTrue(p instanceof ComputerPlayer, "Factory should create ComputerPlayer");
+        assertTrue(p instanceof RandomComputerPlayer, "Factory should create ComputerPlayer");
         assertEquals("CPU", p.getName(), "ComputerPlayer name should be correct");
     }
 

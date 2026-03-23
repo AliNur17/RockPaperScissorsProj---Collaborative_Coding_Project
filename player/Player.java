@@ -28,4 +28,8 @@ public abstract class Player {
     public boolean shouldHideMoveAgainst(Player opponent) {
         return isHumanControlled() && opponent.isHumanControlled();
     }
+
+    public void recordMoves(String moveOne, String moveTwo) {
+        moveBehavior.recordMoves(moveOne, moveTwo);
+    }
 }

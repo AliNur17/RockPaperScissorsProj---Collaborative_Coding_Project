@@ -3,8 +3,8 @@ package player;
 import game.RandomMove;
 
 // Represents a computer player with a swappable move strategy.
-public class ComputerPlayer extends Player {
-    public ComputerPlayer(String name) {
+public class RandomComputerPlayer extends Player {
+    public RandomComputerPlayer(String name) {
         super(name, new RandomMove());
     }
 }

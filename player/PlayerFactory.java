@@ -6,7 +6,9 @@ public class PlayerFactory {
         if (type.equalsIgnoreCase("Human")) {
             return new HumanPlayer(name);
         } else if (type.equalsIgnoreCase("RandomComputer")) {
-            return new ComputerPlayer(name);
+            return new RandomComputerPlayer(name);
+        } else if (type.equalsIgnoreCase("MachineLearningComputer")) {
+            return new MachineLearningComputerPlayer(name);
         } else {
             throw new IllegalArgumentException("Unknown player type: " + type);
         }

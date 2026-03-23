@@ -1,0 +1,90 @@
+java -cp . game.Main -r
+
+Enter 1 to play the game.
+Enter 2 to run all tests.
+Choice: 1
+Welcome to Rock-Paper-Scissors!
+
+Round 1 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Rock. Draw!
+Score: Human:0 RandomComputer:0 Draws=1
+
+Round 2 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:1 RandomComputer:0 Draws=1
+
+Round 3 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:2 RandomComputer:0 Draws=1
+
+Round 4 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:3 RandomComputer:0 Draws=1
+
+Round 5 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Paper. RandomComputer wins!
+Score: Human:3 RandomComputer:1 Draws=1
+
+Round 6 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:4 RandomComputer:1 Draws=1
+
+Round 7 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Rock. Draw!
+Score: Human:4 RandomComputer:1 Draws=2
+
+Round 8 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Rock. Draw!
+Score: Human:4 RandomComputer:1 Draws=3
+
+Round 9 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Rock. Draw!
+Score: Human:4 RandomComputer:1 Draws=4
+
+Round 10 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:5 RandomComputer:1 Draws=4
+
+Round 11 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:6 RandomComputer:1 Draws=4
+
+Round 12 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Paper. RandomComputer wins!
+Score: Human:6 RandomComputer:2 Draws=4
+
+Round 13 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:7 RandomComputer:2 Draws=4
+
+Round 14 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:8 RandomComputer:2 Draws=4
+
+Round 15 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:9 RandomComputer:2 Draws=4
+
+Round 16 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:10 RandomComputer:2 Draws=4
+
+Round 17 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:11 RandomComputer:2 Draws=4
+
+Round 18 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Rock. Draw!
+Score: Human:11 RandomComputer:2 Draws=5
+
+Round 19 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Paper. RandomComputer wins!
+Score: Human:11 RandomComputer:3 Draws=5
+
+Round 20 - Choose (1=Rock, 2=Paper, 3=Scissors): 1
+You chose Rock. The computer chose Scissors. Human wins!
+Score: Human:12 RandomComputer:3 Draws=5
+
+Game Over. The final scores are as follows...
+Score: Human:12 RandomComputer:3 Draws=5
+

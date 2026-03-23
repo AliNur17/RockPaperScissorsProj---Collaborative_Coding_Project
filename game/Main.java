@@ -31,11 +31,14 @@ public class Main {
         TestProgram[] tests = {
                 // Add tests as necessary, or remove if not needed
                 /*
-                new RuleEngineTest(),
                 new RandomMoveTest(),
                 new PlayerFactoryTest(),
                 new PlayerBehaviorTest()
                  */
+                new RuleEngineTest(),
+                new GameConfigFlagTest(),
+                new MachineLearningMemoryTest(),
+                new RandomMoveDistributionTest()
         };
 
         System.out.println("\nRunning all tests...\n");

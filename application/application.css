@@ -1,0 +1,266 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.title {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 25 0 15 0;
+}
+
+#roundsField {
+    -fx-max-width: 50px;
+    -fx-padding: 8;
+}
+
+#gameRoot {
+    -fx-background-color: #25b54b;
+}
+
+#statsPanel {
+    -fx-background-color: #b97c57;
+}
+
+#statsTitle {
+    -fx-font-size: 15px;
+    -fx-text-fill: #4d3325;
+}
+
+#statsBox {
+    -fx-padding: 2 0 0 0;
+}
+
+.statsLabel {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4d3325;
+}
+
+#exitButton {
+    -fx-background-color: #654131;
+    -fx-text-fill: white;
+    -fx-pref-width: 105px;
+    -fx-pref-height: 44px;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: #8d6957;
+    -fx-border-width: 4px;
+}
+
+#exitButton:hover {
+    -fx-background-color: #58392b;
+}
+
+#mainGameArea {
+    -fx-background-color: #25b54b;
+}
+
+#computerLabel,
+#humanLabel {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1d5b2a;
+}
+
+#roundCounter {
+    -fx-font-size: 16px;
+    -fx-text-fill: #1d5b2a;
+}
+
+#instructionLabel {
+    -fx-font-size: 12px;
+    -fx-text-fill: #2d6d39;
+}
+
+.computerBox {
+    -fx-background-color: #31d255;
+}
+
+.moveButton {
+    -fx-background-color: #efefef;
+    -fx-text-fill: #777777;
+    -fx-font-size: 13px;
+    -fx-pref-width: 70px;
+    -fx-pref-height: 95px;
+    -fx-min-width: 70px;
+    -fx-min-height: 95px;
+    -fx-max-width: 70px;
+    -fx-max-height: 95px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: white;
+    -fx-border-width: 4px;
+}
+
+.moveButton:hover {
+    -fx-background-color: #e3e3e3;
+}
+
+#receiptBox {
+    -fx-background-color: #f4efe7;
+    -fx-padding: 8 6 8 6;
+    -fx-border-color: #8d6957;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 1, 2);
+}
+
+.receiptHeading {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222222;
+}
+
+.receiptTextSmall {
+    -fx-font-size: 9px;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: #333333;
+    -fx-wrap-text: true;
+}
+
+.receiptWinner {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Courier New";
+    -fx-text-fill: #222222;
+    -fx-wrap-text: true;
+}
+
+#barcodeRow {
+    -fx-padding: 6 0 0 0;
+    -fx-spacing: 4;
+    -fx-cursor: hand;
+}
+
+.barcode {
+    -fx-pref-width: 26px;
+    -fx-min-width: 26px;
+    -fx-max-width: 26px;
+    -fx-pref-height: 14px;
+    -fx-min-height: 14px;
+    -fx-max-height: 14px;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color:
+        linear-gradient(to right,
+            black 0%,
+            black 8%,
+            transparent 8%,
+            transparent 14%,
+            black 14%,
+            black 20%,
+            transparent 20%,
+            transparent 28%,
+            black 28%,
+            black 40%,
+            transparent 40%,
+            transparent 46%,
+            black 46%,
+            black 52%,
+            transparent 52%,
+            transparent 60%,
+            black 60%,
+            black 72%,
+            transparent 72%,
+            transparent 78%,
+            black 78%,
+            black 88%,
+            transparent 88%,
+            transparent 100%);
+}
+
+.barcodeText {
+    -fx-font-size: 9px;
+    -fx-font-family: "Courier New";
+    -fx-font-weight: bold;
+    -fx-text-fill: #222222;
+}
+
+.computerBox {
+    -fx-background-color: #31d255;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 40px;
+}
+
+.computerChoiceText {
+    -fx-font-size: 11px;
+    -fx-text-fill: #1d5b2a;
+    -fx-font-weight: bold;
+}
+
+.computerSelected > .region {
+    -fx-background-color: #efefef;
+    -fx-border-color: white;
+    -fx-border-width: 3;
+}
+
+.computerSelected > .label {
+    -fx-text-fill: black;
+}
+
+.computerCard {
+    -fx-pref-width: 60px;
+    -fx-pref-height: 40px;
+    -fx-min-width: 60px;
+    -fx-min-height: 40px;
+    -fx-max-width: 60px;
+    -fx-max-height: 40px;
+    -fx-alignment: center;
+}
+
+.computerBox {
+    -fx-background-color: #31d255;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 40px;
+    -fx-min-width: 60px;
+    -fx-min-height: 40px;
+    -fx-max-width: 60px;
+    -fx-max-height: 40px;
+}
+
+.computerCardSelected .computerBox {
+    -fx-background-color: #efefef;
+    -fx-border-color: white;
+    -fx-border-width: 3px;
+}
+
+.computerCardLabel {
+    -fx-font-size: 11px;
+    -fx-text-fill: #7a7a7a;
+    -fx-font-weight: normal;
+    -fx-alignment: center;
+}
+
+.moveButtonSelected {
+    -fx-background-color: #efefef;
+    -fx-text-fill: #555555;
+    -fx-border-color: white;
+    -fx-border-width: 4px;
+}
+
+.moveButton:disabled {
+    -fx-opacity: 1.0;
+}
+
+.moveButtonSelected:disabled {
+    -fx-background-color: #efefef;
+    -fx-text-fill: #555555;
+    -fx-border-color: white;
+    -fx-border-width: 4px;
+    -fx-opacity: 1.0;
+}
+
+.moveButtonSelected {
+    -fx-background-color: #efefef;
+    -fx-text-fill: #555555;
+    -fx-border-color: white;
+    -fx-border-width: 4px;
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.moveButtonBlurred {
+    -fx-scale-x: 0.76;
+    -fx-scale-y: 0.76;
+}

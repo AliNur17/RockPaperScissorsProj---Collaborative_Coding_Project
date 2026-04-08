@@ -1,5 +1,8 @@
 package application;
 
+import game.MachineLearningMove;
+import game.RuleEngine;
+import javafx.scene.control.Alert;
 import javafx.animation.PauseTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -48,6 +51,13 @@ public class GameScreen implements AppScreen {
     private HBox barcodeRow;
     private boolean waitingForProceed = false;
 
+    private Label humanChoiceLabel;
+    private Label predictionLabel;
+    private Label decisionLabel;
+    private Label winnerLabel;
+
+    private MachineLearningMove mlMove;
+
     public GameScreen(ScreenManager manager, GameData gameData) {
         this.manager = manager;
         this.gameData = gameData;
@@ -55,6 +65,13 @@ public class GameScreen implements AppScreen {
 
     @Override
     public Parent getView() {
+        currentRound = 1;
+        humanWins = 0;
+        computerWins = 0;
+        ties = 0;
+        waitingForProceed = false;
+        userChoiceLocked = false;
+        mlMove = new MachineLearningMove();
 
         BorderPane content = new BorderPane();
         content.setId("gameRoot");
@@ -95,20 +112,20 @@ public class GameScreen implements AppScreen {
         Label receiptTitle = new Label("Human");
         receiptTitle.getStyleClass().add("receiptHeading");
 
-        Label humanChoice = new Label("Chooses:  Paper"); // EDIT THIS *************************
-        humanChoice.getStyleClass().add("receiptTextSmall");
+        humanChoiceLabel = new Label("Chooses:  -");
+        humanChoiceLabel.getStyleClass().add("receiptTextSmall");
 
         Label computerHeader = new Label("Computer");
         computerHeader.getStyleClass().add("receiptHeading");
 
-        Label prediction = new Label("Predicted human choice:  Paper"); // EDIT THIS *********************
-        prediction.getStyleClass().add("receiptTextSmall");
+        predictionLabel = new Label("Predicted human choice:  -");
+        predictionLabel.getStyleClass().add("receiptTextSmall");
 
-        Label decision = new Label("Therefore computer chooses:  Scissors"); // EDIT THIS **********************
-        decision.getStyleClass().add("receiptTextSmall");
+        decisionLabel = new Label("Therefore computer chooses:  -");
+        decisionLabel.getStyleClass().add("receiptTextSmall");
 
-        Label winner = new Label("The winner:   Computer"); // EDIT THIS ************************
-        winner.getStyleClass().add("receiptWinner");
+        winnerLabel = new Label("The winner:   -");
+        winnerLabel.getStyleClass().add("receiptWinner");
 
         barcodeRow = new HBox();
         barcodeRow.setId("barcodeRow");
@@ -133,11 +150,11 @@ public class GameScreen implements AppScreen {
         VBox receiptBox = new VBox(
                 5,
                 receiptTitle,
-                humanChoice,
+                humanChoiceLabel,
                 computerHeader,
-                prediction,
-                decision,
-                winner,
+                predictionLabel,
+                decisionLabel,
+                winnerLabel,
                 barcodeRow
         );
         receiptBox.setId("receiptBox");
@@ -180,7 +197,7 @@ public class GameScreen implements AppScreen {
         computerBoxes.setId("computerBoxes");
         computerBoxes.setAlignment(Pos.CENTER);
 
-        roundCounter = new Label("ROUND: " + currentRound); // EDIT THIS **************************
+        roundCounter = new Label("ROUND: " + currentRound + " / " + gameData.getRounds());
         roundCounter.setId("roundCounter");
 
         rockButton = new Button("Rock");
@@ -229,8 +246,36 @@ public class GameScreen implements AppScreen {
         userChoiceLocked = true;
         lockUserButtons();
 
+        String predictedHumanMove = mlMove.getPredictedHumanMove();
+        String computerChoice = mlMove.makeMove(false);
+
+        int result = RuleEngine.getVictor(choice, computerChoice);
+        String winnerText;
+        if (result == 1) {
+            humanWins++;
+            winnerText = "Human";
+        } else if (result == 2) {
+            computerWins++;
+            winnerText = "Computer";
+        } else {
+            ties++;
+            winnerText = "Tie";
+        }
+
+        mlMove.recordMoves(choice, computerChoice);
+
+        humanWinsLabel.setText("Human Wins: " + humanWins);
+        computerWinsLabel.setText("Computer Wins: " + computerWins);
+        tiesLabel.setText("Ties: " + ties);
+
+        String predictionText = predictedHumanMove != null ? predictedHumanMove : "Unknown";
+        humanChoiceLabel.setText("Chooses:  " + choice);
+        predictionLabel.setText("Predicted human choice:  " + predictionText);
+        decisionLabel.setText("Therefore computer chooses:  " + computerChoice);
+        winnerLabel.setText("The winner:   " + winnerText);
+
         showSelectedUserCard(choice);
-        showMatchingComputerCard(choice);
+        showMatchingComputerCard(computerChoice);
         showReceiptAction();
     }
 
@@ -360,12 +405,25 @@ public class GameScreen implements AppScreen {
             return;
         }
 
-        if (currentRound < gameData.getRounds()) {
-            currentRound++;
-            roundCounter.setText("ROUND: " + currentRound);
+        waitingForProceed = false;
+
+        if (currentRound >= gameData.getRounds()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText("Game Over!");
+            alert.setContentText(
+                "Final Score:\n" +
+                "Human Wins: " + humanWins + "\n" +
+                "Computer Wins: " + computerWins + "\n" +
+                "Ties: " + ties
+            );
+            alert.showAndWait();
+            manager.show(Main.MENU);
+            return;
         }
 
-        waitingForProceed = false;
+        currentRound++;
+        roundCounter.setText("ROUND: " + currentRound + " / " + gameData.getRounds());
         clearUI();
     }
 
@@ -376,10 +434,15 @@ public class GameScreen implements AppScreen {
         ties = 0;
         waitingForProceed = false;
 
-        roundCounter.setText("ROUND: 1");
+        roundCounter.setText("ROUND: 1 / " + gameData.getRounds());
         humanWinsLabel.setText("Human Wins: 0");
         computerWinsLabel.setText("Computer Wins: 0");
         tiesLabel.setText("Ties: 0");
+
+        humanChoiceLabel.setText("Chooses:  -");
+        predictionLabel.setText("Predicted human choice:  -");
+        decisionLabel.setText("Therefore computer chooses:  -");
+        winnerLabel.setText("The winner:   -");
 
         clearUI();
     }

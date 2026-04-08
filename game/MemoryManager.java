@@ -55,15 +55,20 @@ public class MemoryManager {
     }
 
     public String[] chooseMove() {
-        System.out.println(pastMoves);
         if (map.containsKey(pastMoves)) {
             MemoryChoice mc = map.get(pastMoves);
-            String[] array = mc.choose();
-            return array;
+            return mc.choose();
         }
         else {
             return RuleEngine.getMoves();
         }
+    }
+
+    public String getPredictedHumanMove() {
+        if (!map.containsKey(pastMoves)) {
+            return null;
+        }
+        return map.get(pastMoves).getPrediction();
     }
 
     public void chosenMove(String curr) {
@@ -157,6 +162,18 @@ public class MemoryManager {
                 }
             }
             return list.toArray(String[]::new);
+        }
+
+        public String getPrediction() {
+            int highest = 0;
+            String prediction = null;
+            for (Entry<String, Integer> entry : innerMap.entrySet()) {
+                if (entry.getValue() > highest) {
+                    highest = entry.getValue();
+                    prediction = entry.getKey();
+                }
+            }
+            return prediction;
         }
 
         public void initializePair(String key, String numberAsString) {

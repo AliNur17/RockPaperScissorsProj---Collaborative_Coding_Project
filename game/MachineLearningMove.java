@@ -22,9 +22,7 @@ public class MachineLearningMove implements Move {
     @Override
     public String chooseMove(boolean hiddenMode) {
         String[] moves = mm.chooseMove();
-        String decision = moves[random.nextInt(moves.length)];
-        GameDisplay.showComputerChoice(decision);
-        return decision;
+        return moves[random.nextInt(moves.length)];
     }
 
     @Override

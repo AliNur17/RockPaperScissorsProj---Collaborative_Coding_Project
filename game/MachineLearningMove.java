@@ -41,4 +41,8 @@ public class MachineLearningMove implements Move {
         mm.recordOpponentMove(moveOne);
         mm.chosenMove(moveTwo);
     }
+
+    public String getPredictedHumanMove() {
+        return mm.getPredictedHumanMove();
+    }
 }

@@ -24,6 +24,7 @@ public class ScreenManager {
         screens.put(Main.ABOUT, new AboutScreen(this));
         screens.put(Main.SELECT_ROUNDS, new SelectRoundsScreen(this, gameData));
         screens.put(Main.GAME, new GameScreen(this, gameData));
+        screens.put(Main.TEST_CONTENTS, new TestContentsScreen(this));
     }
 
     public void show(String screenName) {

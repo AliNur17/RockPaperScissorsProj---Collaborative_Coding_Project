@@ -23,13 +23,15 @@ public class MenuScreen implements AppScreen {
 
         Button roundsButton = new Button("Start Game");
         Button aboutButton = new Button("About");
+        Button testContentsButton = new Button("View Test Contents");
         Button exitButton = new Button("Exit");
 
         roundsButton.setOnAction(e -> manager.show(Main.SELECT_ROUNDS));
         aboutButton.setOnAction(e -> manager.show(Main.ABOUT));
+        testContentsButton.setOnAction(e -> manager.show(Main.TEST_CONTENTS));
         exitButton.setOnAction(e -> Platform.exit());
 
-        VBox center = new VBox(20, aboutButton, roundsButton, exitButton);
+        VBox center = new VBox(20, aboutButton, roundsButton, testContentsButton, exitButton);
         center.setAlignment(Pos.CENTER);
 
         BorderPane root = new BorderPane();

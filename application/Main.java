@@ -9,6 +9,7 @@ public class Main extends Application {
     public static final String ABOUT = "about";
     public static final String SELECT_ROUNDS = "selectRounds";
     public static final String GAME = "game";
+    public static final String TEST_CONTENTS = "testContents";
 
     @Override
     public void start(Stage stage) {
